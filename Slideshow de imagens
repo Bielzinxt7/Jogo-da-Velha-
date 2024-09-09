@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow de Imagens</title>
+  <style>
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <script>
+    let index = 0;
+    const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+
+    function showImage(n) {
+      index += n;
+      if (index < 0) index = images.length - 1;
+      if (index >= images.length) index = 0;
+      document.getElementById("slideshow").src = images[index];
+    }
+  </script>
+</head>
+<body>
+  <h2>Slideshow de Imagens</h2>
+  <img id="slideshow" src="image1.jpg" alt="Imagem">
+  <br>
+  <button onclick="showImage(-1)">Anterior</button>
+  <button onclick="showImage(1)">Próximo</button>
+</body>
+</html>
